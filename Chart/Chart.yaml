@@ -5,4 +5,4 @@ version: 0.1.0
 appVersion: "1.0"
 home: https://github.com/cloudbees-guru/spring-petclinic
 sources:
-  - https://github.com/spring-petclinic/spring-petclinic-kotlin
+  - https://github.com/spring-petclinic/spring-framework-petclinic
