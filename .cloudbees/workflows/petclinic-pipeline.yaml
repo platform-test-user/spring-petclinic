@@ -1,0 +1,17 @@
+apiVersion: automation.cloudbees.io/v1alpha1
+kind: workflow
+name: Petclinic pipeline
+
+on:
+  push:
+    branches:
+      - main
+
+jobs:
+  build:
+    steps:
+      - name: Maven build
+        uses: docker://maven:3-eclipse-temurin-11
+        shell: sh
+        run: |
+          echo "hello world"
