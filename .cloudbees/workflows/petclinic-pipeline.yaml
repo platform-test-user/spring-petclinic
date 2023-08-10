@@ -11,6 +11,7 @@ jobs:
   first-step:
     steps:
       - name: First
+        uses: cloudbees-io/checkout@v1
         shell: sh
         run: |
           ls -l
