@@ -13,12 +13,12 @@ jobs:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
       - name: List
-        uses: docker://maven:3-eclipse-temurin-11
+        uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
           ls -l
       - name: Maven build
-        uses: docker://maven:3-eclipse-temurin-11
+        uses: docker://maven:3-eclipse-temurin-17
         shell: sh
         run: |
           mvn clean verify -Dtest="*,!MySql*,!Postgres*"
