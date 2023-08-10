@@ -8,13 +8,14 @@ on:
       - main
 
 jobs:
-  first-step:
+  c-first-step:
     steps:
       - name: First
         uses: cloudbees-io/checkout@v1
-        shell: sh
-        run: |
-          ls -l
+  a-second-step:
+    steps:
+      - name: First
+        uses: cloudbees-io/checkout@v1
   build:
     steps:
       - name: Checkout
