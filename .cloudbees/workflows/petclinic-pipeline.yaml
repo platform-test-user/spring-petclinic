@@ -10,7 +10,7 @@ on:
 jobs:
   build:
     steps:
-      - name: checkout
+      - name: Checkout
         uses: cloudbees-io/checkout@v1
       - name: List
         uses: docker://maven:3-eclipse-temurin-11
