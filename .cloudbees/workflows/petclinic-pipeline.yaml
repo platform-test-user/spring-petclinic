@@ -8,7 +8,7 @@ on:
       - main
 
 jobs:
-  first step:
+  first-step:
     steps:
       - name: First
         shell: sh
