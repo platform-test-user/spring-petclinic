@@ -8,17 +8,16 @@ on:
       - main
 
 jobs:
-  checkout:
+  first step:
     steps:
-      - name: Checkout
-        uses: cloudbees-io/checkout@v1
-  build:
-    steps:
-      - name: List
-        uses: docker://maven:3-eclipse-temurin-17
+      - name: First
         shell: sh
         run: |
           ls -l
+  build:
+    steps:
+      - name: Checkout
+        uses: cloudbees-io/checkout@v1
       - name: Maven build
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
