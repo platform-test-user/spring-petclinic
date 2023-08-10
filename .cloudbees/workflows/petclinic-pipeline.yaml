@@ -8,10 +8,12 @@ on:
       - main
 
 jobs:
-  build:
+  checkout:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
+  build:
+    steps:
       - name: List
         uses: docker://maven:3-eclipse-temurin-17
         shell: sh
