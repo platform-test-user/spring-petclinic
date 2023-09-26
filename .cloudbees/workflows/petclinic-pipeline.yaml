@@ -10,11 +10,11 @@ on:
 jobs:
   c-first-step:
     steps:
-      - name: First
+      - name: First-step
         uses: cloudbees-io/checkout@v1
   a-second-step:
     steps:
-      - name: Second
+      - name: Second-step
         uses: cloudbees-io/checkout@v1
   b-third-step-build:
     steps:
