@@ -14,7 +14,7 @@ jobs:
         uses: cloudbees-io/checkout@v1
   a-second-step:
     steps:
-      - name: First
+      - name: Second
         uses: cloudbees-io/checkout@v1
   b-third-step-build:
     steps:
