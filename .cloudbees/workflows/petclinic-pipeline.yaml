@@ -1,12 +1,10 @@
 apiVersion: automation.cloudbees.io/v1alpha1
 kind: workflow
 name: Petclinic pipeline
-
 on:
   push:
     branches:
       - main
-
 jobs:
   c-first-step:
     steps:
@@ -16,6 +14,7 @@ jobs:
     steps:
       - name: Second-step
         uses: cloudbees-io/checkout@v1
+    needs: c-first-step
   b-third-step-build:
     steps:
       - name: Checkout
@@ -25,3 +24,4 @@ jobs:
         shell: sh
         run: |
           mvn clean verify -Dtest="*,!MySql*,!Postgres*"
+    needs: a-second-step
