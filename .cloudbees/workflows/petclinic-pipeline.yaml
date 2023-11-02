@@ -6,16 +6,7 @@ on:
     branches:
       - main
 jobs:
-  c-first-step:
-    steps:
-      - name: First-step
-        uses: cloudbees-io/checkout@v1
-  a-second-step:
-    steps:
-      - name: Second-step
-        uses: cloudbees-io/checkout@v1
-    needs: c-first-step
-  b-third-step-build:
+  build:
     steps:
       - name: Checkout
         uses: cloudbees-io/checkout@v1
@@ -24,4 +15,3 @@ jobs:
         shell: sh
         run: |
           mvn clean verify -Dtest="*,!MySql*,!Postgres*"
-    needs: a-second-step
