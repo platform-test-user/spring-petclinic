@@ -23,6 +23,6 @@ jobs:
         with:
           server-url: https://sonar.cloudbees.guru:9000
           username: admin
-          password: {{sonarqube_cloudbees_guru}}
+          password: ${{ secrets.sonarqube_cloudbees_guru }}
     needs:
       - build
