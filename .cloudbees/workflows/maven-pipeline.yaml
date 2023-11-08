@@ -20,5 +20,12 @@ jobs:
       - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v1
         name: Run SonarQube scan
         kind: scan
+      - uses: cloudbees-io/jfrog-artifactory-upload-file@v1
+        kind: deploy
+        with:
+          url: https://mycbplatform.jfrog.io/artifactory/libs-release
+          token: cmVmdGtuOjAxOjE3MzEwMDk0ODM6TFRLUFJwN0tEUTNPcnlOWUtMU2Vjb25yWlJs
+          file-path: /Users/lgaudet/workspace/spring-petclinic
+          artifactory-path: libs-release/
     needs:
       - build
