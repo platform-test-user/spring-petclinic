@@ -25,7 +25,7 @@ jobs:
         with:
           url: https://mycbplatform.jfrog.io/artifactory/libs-release
           token: cmVmdGtuOjAxOjE3MzEwMDk0ODM6TFRLUFJwN0tEUTNPcnlOWUtMU2Vjb25yWlJs
-          file-path: /Users/lgaudet/workspace/spring-petclinic
+          file-path: /System/Volumes/Data/Users/lgaudet/workspace/spring-petclinic
           artifactory-path: libs-release/
     needs:
       - build
