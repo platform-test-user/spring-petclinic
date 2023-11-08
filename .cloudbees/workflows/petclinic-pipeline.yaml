@@ -15,4 +15,16 @@ jobs:
         shell: sh
         run: |
           mvn clean verify -Dtest="*,!MySql*,!Postgres*"
-
+      - name: SonarQube
+        uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v1
+        kind: scan
+  deploy:
+    steps:
+      - uses: cloudbees-io/s3-upload-object@v1
+        kind: deploy
+        with:
+          bucket-name: myplatformbucket
+          file-path: /users/lgaudet/myapp.tar.gz
+          s3-path: /myplatformbucket?region=us-east-2
+    needs:
+      - build
