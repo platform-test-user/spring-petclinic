@@ -27,13 +27,13 @@ jobs:
       - name: Jfrog configure
         uses: cloudbees-io/configure-oci-credentials@v1
         with:
-          registry: artprod.company.com
-          username: ${{ vars.ARTIFACTORY_USERNAME }}
-          password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+          registry: mycbplatform.jfrog.io
+          username: ${{ secrets.JFrog_username }}
+          password: ${{ secrets.JFrog_password }}
       - name: Push image to the configured OCI Registry
         uses: cloudbees-io/kaniko@v1
         with:
-          destination: sample-go-app:1.0.5
+          destination: maven-pet-clinic-libs-snapshot
          
 
 
