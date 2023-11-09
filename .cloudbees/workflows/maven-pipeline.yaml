@@ -16,16 +16,25 @@ jobs:
         run: |
           mvn clean verify -Dtest="*,!MySql*,!Postgres*"
   SonarQube:
+    needs: build
     steps:
       - uses: cloudbees-io/sonarqube-bundled-sast-scan-code@v1
         name: Run SonarQube scan
         kind: scan
-      - uses: cloudbees-io/jfrog-artifactory-upload-file@v1
-        kind: deploy
+  JFrog:
+    needs: SonarQube
+    steps:
+      - name: Jfrog configure
+        uses: cloudbees-io/configure-oci-credentials@v1
         with:
-          url: https://mycbplatform.jfrog.io/artifactory/libs-release
-          token: cmVmdGtuOjAxOjE3MzEwMDk0ODM6TFRLUFJwN0tEUTNPcnlOWUtMU2Vjb25yWlJs
-          file-path: /System/Volumes/Data/Users/lgaudet/workspace/spring-petclinic
-          artifactory-path: libs-release/
-    needs:
-      - build
+          registry: artprod.company.com
+          username: ${{ vars.ARTIFACTORY_USERNAME }}
+          password: ${{ secrets.ARTIFACTORY_PASSWORD }}
+      - name: Push image to the configured OCI Registry
+        uses: cloudbees-io/kaniko@v1
+        with:
+          destination: sample-go-app:1.0.5
+         
+
+
+     
