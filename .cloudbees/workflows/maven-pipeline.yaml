@@ -27,7 +27,7 @@ jobs:
       - name: Jfrog configure
         uses: cloudbees-io/configure-oci-credentials@v1
         with:
-          registry: mycbplatform.jfrog.io
+          registry: testcbplatform.jfrog.io
           username: ${{ secrets.JFrog_username }}
           password: ${{ secrets.JFrog_password }}
       - name: Push image to the configured OCI Registry
